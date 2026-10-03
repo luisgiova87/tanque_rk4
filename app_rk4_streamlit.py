@@ -43,17 +43,15 @@ if st.button("🔄 Reiniciar con Nuevos Valores"):
 col_izq, col_der = st.columns([1.1, 0.9])
 
 with col_izq:
-    st.info(
-        "**Parámetros del Problema (Ley de Torricelli):**
-"
-        "* **Altura Inicial ($h_0$):** {} m
-".format(st.session_state.h0) +
-        "* **Coeficiente de descarga ($k$):** {}
-".format(st.session_state.k) +
-        "* **Tamaño de paso ($\Delta t$):** {} s
-".format(st.session_state.dt) +
-        "* **Ecuación Diferencial:** $\frac{dh}{dt} = -k \sqrt{h}$"
-    )
+    texto_info = (
+        "**Parámetros del Problema (Ley de Torricelli):**\n\n"
+        "* **Altura Inicial ($h_0$):** {} m\n"
+        "* **Coeficiente de descarga ($k$):** {}\n"
+        "* **Tamaño de paso ($\Delta t$):** {} s\n"
+        "* **Ecuación Diferencial:** $\frac{{dh}}{{dt}} = -k \sqrt{{h}}$"
+    ).format(st.session_state.h0, st.session_state.k, st.session_state.dt)
+    
+    st.info(texto_info)
 
     if st.session_state.curr_h > 0.001 and not st.session_state.completed:
         st.warning("📌 **Iteración {}** | Tiempo actual ($t$) = **{:.2f} s** | Nivel actual ($h$) = **{:.4f} m**".format(
@@ -123,10 +121,8 @@ with col_izq:
 with col_der:
     st.markdown("### 📈 Gráfica de Vaciado en Vivo")
     
-    # Generar gráfica con Matplotlib
     fig, ax = plt.subplots(figsize=(6, 4.5))
     
-    # Curva analítica teórica
     h0_val = st.session_state.h0
     k_val = st.session_state.k
     t_max_teo = (2 * math.sqrt(h0_val)) / k_val
