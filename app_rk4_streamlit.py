@@ -49,7 +49,7 @@ with col_izq:
     st.markdown(f"* **Tamaño de paso ($\Delta t$):** {{}} s".format(st.session_state.dt))
     
     # SOLUCIÓN ABSOLUTA: Usar cadena en bruto (r) para LaTeX y evitar que '' sea interpretado por Python
-    st.markdown(r"* **Ecuación Diferencial:** $rac{dh}{dt} = -k \sqrt{h}$")
+    st.markdown(r"* **Ecuación Diferencial:** $\\frac{dh}{dt} = -k \\sqrt{h}$")
     st.markdown("---")
 
     if st.session_state.curr_h > 0.001 and not st.session_state.completed:
