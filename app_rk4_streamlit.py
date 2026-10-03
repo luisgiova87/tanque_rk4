@@ -47,7 +47,8 @@ with col_izq:
     st.markdown(f"* **Altura Inicial ($h_0$):** {{}} m".format(st.session_state.h0))
     st.markdown(f"* **Coeficiente de descarga ($k$):** {{}}".format(st.session_state.k))
     st.markdown(f"* **Tamaño de paso ($\Delta t$):** {{}} s".format(st.session_state.dt))
-    # Uso de doble barra para evitar que  sea interpretado como form feed en Python
+    
+    # SOLUCIÓN ABSOLUTA: Usar cadena en bruto (r) para LaTeX y evitar que '' sea interpretado por Python
     st.markdown(r"* **Ecuación Diferencial:** $rac{dh}{dt} = -k \sqrt{h}$")
     st.markdown("---")
 
